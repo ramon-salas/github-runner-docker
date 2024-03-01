@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:noble-20240212
 
 ADD ./initRunner.sh initRunner.sh
 
