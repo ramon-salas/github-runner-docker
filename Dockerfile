@@ -8,13 +8,24 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     sudo \
     unzip \
-    jq
+    jq \
+    git
 
 RUN useradd -m -s /bin/bash githubuser
 
 RUN echo 'githubuser:githubpass' | chpasswd
 
 RUN usermod -aG sudo githubuser
+
+RUN mkdir /home/githubuser/.ssh
+
+ADD ./id_rsa /home/githubuser/.ssh/
+
+RUN touch /home/githubuser/.ssh/known_hosts
+
+RUN ssh-keyscan -H github.com >> /home/githubuser/.ssh/known_hosts
+
+RUN chown -R githubuser:githubuser /home/githubuser/.ssh
 
 USER githubuser
 
