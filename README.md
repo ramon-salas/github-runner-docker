@@ -37,6 +37,7 @@ Agregue un nombre y pegue el contenido antes copiado del archivo id_rsa.pub, con
 ```console
 $ docker build -t github-runner:v1 .
 ```
+* Se recomienda también copiar el contenido del archivo ~/.ssh/id_rsa.pub al archivo ~/.ssh/known_hosts del servidor en donde se va a hacer el desplieuge si es que así lo pide la aplicación sobre la cual se esta trabajando
 * Una vez creada la imagen entonces se puede generar el contendor. Pero antes de generar el comando del contenedor se tienen que tener en cuenta algunas cosas:
     * Se necesta tener en la maquina host la instalación del JDK con el cual va a compilar sus proyectos
     * Se necesita tener en la maquina host la instalación de maven con el cual va a compilar sus proyectos
