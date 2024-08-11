@@ -70,11 +70,13 @@ then
   exit -1
 fi
 
-JAVA_PATH=/home/sajiro/jdk/amazon-corretto-17.0.10.8.1-linux-x64/
+JAVA_PATH=/home/sajiro/jdk/java_link_version/
 MAVEN_PATH=/home/sajiro/apps/apache-maven-3.9.6/
 
 docker run --restart always -d -v $JAVA_PATH:/jdk -v $MAVEN_PATH:/maven -e MAVEN_HOME=/maven -e JAVA_HOME=/jdk -e GITHUB_REPO_URL=$1 -e GITHUB_TOKEN=$3 -e GITHUB_SSH_REPO_URL=$2 --name $4 github-runner:v1
 ```
+Donde java_link_version puede ser un link simbolico que este direccionado a la versión actual de Java que se este ocupando
+
 Un ejemplo de ejcución de este script sería el siguiente:
 
 ```console
